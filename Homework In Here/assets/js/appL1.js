@@ -1,7 +1,3 @@
-//Tried to make this responsive, didn't work since it has to be the whole window not in a div tag
-
-
-
 let svgWidth = 960;
 let svgHeight = 500;
 
@@ -135,12 +131,12 @@ d3.csv("./assets/data/data.csv").then(function(stateData) {
 
 
 
+/*
+
+The code below was past attempts at the Level 1
 
 
-
-
-
-
+*/
 
 
 
