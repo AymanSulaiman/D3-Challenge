@@ -94,7 +94,14 @@ d3.csv("./assets/data/data.csv").then(function(stateData) {
         .offset([22, 5])
         .html(function(d) {
         return (`${d.abbr}`);
+        })
+        .offset([80,-60])
+        .html(function(d){
+            return(`${d.abbr}<hr>Poverty level: ${d.poverty}<hr>Lacks Healthcare: ${d.healthcare}`)
         });
+
+    
+
 
     // Step 7: Create tooltip in the chart
     // ==============================
@@ -102,13 +109,14 @@ d3.csv("./assets/data/data.csv").then(function(stateData) {
 
     // Step 8: Create event listeners to display and hide the tooltip
     // ==============================
-    // circlesGroup.on("mouseover", function(data) {
-    //   toolTip.show(data, this);
-    // })
-    //   // onmouseout event
-    //   .on("mouseout", function(data, index) {
-    //     toolTip.show(data);
-    //   });
+    circlesGroup.on("click", function(data) {
+        toolTip.show(data, this);
+      })
+        // onmouseout event
+        .on("mouseout", function(data, index) {
+          toolTip.hide(data);
+        });
+
 
     // Create axes labels
     chartGroup.append("text")
@@ -117,11 +125,13 @@ d3.csv("./assets/data/data.csv").then(function(stateData) {
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
         .attr("class", "axisText")
+        .attr("font-family","Helvetica")
         .text("Lacks Healthcare (%)");
 
     chartGroup.append("text")
         .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
         .attr("class", "axisText")
+        .attr("font-family","Helvetica")
         .text("In Poverty (%)");
     }).catch(function(error) {
     console.log(error);
