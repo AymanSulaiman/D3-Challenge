@@ -33,7 +33,7 @@ body {
 .tooltip {
   position: absolute;
   width: 135px;
-  height: 100px;
+  height: 150px;
   padding: 2px;
   padding-top: 8px;
   font: 12px sans-serif;
